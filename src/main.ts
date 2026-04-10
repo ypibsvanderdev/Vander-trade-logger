@@ -301,7 +301,7 @@ ${state.customLoadstrings}`;
           state.protectStatus = 'Hosting production source...';
           render();
           
-          await fetch(`https://kvdb.io/A95k8Z9S8kS8kS8kS8kS8k/${scriptId}`, {
+          await fetch(`/api/hub/${scriptId}`, {
               method: 'POST',
               body: finalSource
           });
