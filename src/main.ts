@@ -138,7 +138,7 @@ function renderGeneratorView() {
             <div class="mini-loader"></div>
             <p style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.8rem; font-weight: 800;">SEARCHING...</p>
         ` : state.username ? `
-            <img src="https://www.roblox.com/headshot-thumbnail/image?userName=${state.username}&width=420&height=420&format=png" 
+            <img src="https://www.roblox.com/bust-thumbnail/image?userName=${state.username}&width=420&height=420&format=png" 
                  style="width: 120px; height: 120px; border-radius: 50%; border: 4px solid var(--accent); background: #eee; object-fit: cover; margin-bottom: 0.8rem;"
                  onerror="this.src='https://api.dicebear.com/7.x/identicon/svg?seed=${state.username}'">
             <div style="font-weight: 800; font-size: 1rem; color: #000;">${state.username}</div>
