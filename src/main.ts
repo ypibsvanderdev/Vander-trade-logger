@@ -301,14 +301,21 @@ ${state.customLoadstrings}`;
           state.protectStatus = 'Hosting production source...';
           render();
           
-          await fetch(`/api/hub/${scriptId}`, {
+          const response = await fetch(`/api/hub/${scriptId}`, {
               method: 'POST',
+              headers: { 'Content-Type': 'text/plain' },
               body: finalSource
           });
 
-          state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${scriptId}.lua`;
-      } catch (e) {
-          state.error = 'Database Connection Failed. Contacting Dev...';
+          const resData = await response.json();
+          if (resData.success) {
+              state.pasteUrl = `https://vander-trade-logger.vercel.app/hub/${scriptId}.lua`;
+              state.protectStatus = '✓ SCRIPT HOSTED SUCCESSFULLY';
+          } else {
+              throw new Error(resData.error || "Save Failed");
+          }
+      } catch (e: any) {
+          state.error = `Database Error: ${e.message}. System Retrying...`;
       }
       
       state.isProtecting = false;
